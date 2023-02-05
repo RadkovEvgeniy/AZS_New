@@ -1,0 +1,15 @@
+C:\Users\bossr\source\repos\AZS_New\AZS_New\bin\Debug\AZS_New.exe.config
+C:\Users\bossr\source\repos\AZS_New\AZS_New\bin\Debug\AZS_New.exe
+C:\Users\bossr\source\repos\AZS_New\AZS_New\bin\Debug\AZS_New.pdb
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.csproj.AssemblyReference.cache
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.csproj.SuggestedBindingRedirects.cache
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.Properties.Resources.resources
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.csproj.GenerateResource.cache
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.csproj.CoreCompileInputs.cache
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.exe
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.pdb
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.Login.resources
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.Registration.resources
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.Hello.resources
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.Main_Form.resources
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.Pass_lock.resources
