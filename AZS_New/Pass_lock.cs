@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace AZS_New
 {
-    public partial class Main_Form : Form
+    public partial class Pass_lock : Form
     {
-        public Main_Form()
+        public Pass_lock()
         {
             InitializeComponent();
-            StartPosition = FormStartPosition.CenterScreen;
-        }
-
-        private void Main_Form_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

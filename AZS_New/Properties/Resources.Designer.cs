@@ -63,9 +63,49 @@ namespace AZS_New.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _134182_information_question_icon {
+            get {
+                object obj = ResourceManager.GetObject("134182_information_question_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _134192_information_question_icon {
+            get {
+                object obj = ResourceManager.GetObject("134192_information_question_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _211762_information_icon {
+            get {
+                object obj = ResourceManager.GetObject("211762_information_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2203523_arrow_back_botton_left_icon {
             get {
                 object obj = ResourceManager.GetObject("2203523_arrow_back_botton_left_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _5349751_information_info_icon {
+            get {
+                object obj = ResourceManager.GetObject("5349751_information_info_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +146,26 @@ namespace AZS_New.Properties {
         internal static System.Drawing.Bitmap _9224381_padlock_lock_security_protection_secure_icon {
             get {
                 object obj = ResourceManager.GetObject("9224381_padlock_lock_security_protection_secure_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap peead {
+            get {
+                object obj = ResourceManager.GetObject("peead", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap proba {
+            get {
+                object obj = ResourceManager.GetObject("proba", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

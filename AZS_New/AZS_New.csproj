@@ -47,6 +47,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database_connection.cs" />
+    <Compile Include="Hello.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hello.Designer.cs">
+      <DependentUpon>Hello.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pass_lock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pass_lock.Designer.cs">
+      <DependentUpon>Pass_lock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,8 +79,17 @@
     <Compile Include="Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Hello.resx">
+      <DependentUpon>Hello.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pass_lock.resx">
+      <DependentUpon>Pass_lock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Form.resx">
+      <DependentUpon>Main_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -116,6 +137,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\2203523_arrow_back_botton_left_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5349751_information_info_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\211762_information_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\134182_information_question_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\134192_information_question_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proba.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\peead.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

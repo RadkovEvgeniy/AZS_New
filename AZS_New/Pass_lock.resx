@@ -117,44 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="скрыть" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\скрыть.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="678132_account_user_person_profile_avatar_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\678132_account_user_person_profile_avatar_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="proba" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\proba.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="678158_account_add_friend_person_social_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\678158_account_add_friend_person_social_icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="показать" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\показать.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="9224381_padlock_lock_security_protection_secure_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\9224381_padlock_lock_security_protection_secure_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="211762_information_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\211762_information_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="678158_account_add_friend_person_social_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\678158_account_add_friend_person_social_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="5349751_information_info_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\5349751_information_info_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="2203523_arrow_back_botton_left_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2203523_arrow_back_botton_left_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="134182_information_question_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\134182_information_question_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="134192_information_question_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\134192_information_question_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="peead" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\peead.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

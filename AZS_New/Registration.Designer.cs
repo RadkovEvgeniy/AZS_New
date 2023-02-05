@@ -35,6 +35,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.infobox = new System.Windows.Forms.PictureBox();
+            this.secretbox = new System.Windows.Forms.TextBox();
+            this.surnamebox = new System.Windows.Forms.TextBox();
             this.eyes2 = new System.Windows.Forms.PictureBox();
             this.eyes1 = new System.Windows.Forms.PictureBox();
             this.enter = new System.Windows.Forms.Button();
@@ -45,6 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.infobox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyes2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyes1)).BeginInit();
             this.SuspendLayout();
@@ -77,23 +81,27 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::AZS_New.Properties.Resources._9224381_padlock_lock_security_protection_secure_icon;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 410);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 436);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(120, 120);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::AZS_New.Properties.Resources._678158_account_add_friend_person_social_icon1;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 224);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 248);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(120, 120);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -108,6 +116,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(152)))), ((int)(((byte)(169)))));
+            this.panel2.Controls.Add(this.infobox);
+            this.panel2.Controls.Add(this.secretbox);
+            this.panel2.Controls.Add(this.surnamebox);
             this.panel2.Controls.Add(this.eyes2);
             this.panel2.Controls.Add(this.eyes1);
             this.panel2.Controls.Add(this.enter);
@@ -118,12 +129,44 @@
             this.panel2.Size = new System.Drawing.Size(515, 567);
             this.panel2.TabIndex = 0;
             // 
+            // infobox
+            // 
+            this.infobox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infobox.Image = global::AZS_New.Properties.Resources._134192_information_question_icon;
+            this.infobox.Location = new System.Drawing.Point(450, 435);
+            this.infobox.Name = "infobox";
+            this.infobox.Size = new System.Drawing.Size(45, 45);
+            this.infobox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.infobox.TabIndex = 7;
+            this.infobox.TabStop = false;
+            this.infobox.Click += new System.EventHandler(this.infobox_Click);
+            // 
+            // secretbox
+            // 
+            this.secretbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.secretbox.Location = new System.Drawing.Point(35, 327);
+            this.secretbox.Multiline = true;
+            this.secretbox.Name = "secretbox";
+            this.secretbox.Size = new System.Drawing.Size(410, 50);
+            this.secretbox.TabIndex = 6;
+            this.secretbox.TextChanged += new System.EventHandler(this.secretbox_TextChanged);
+            // 
+            // surnamebox
+            // 
+            this.surnamebox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.surnamebox.Location = new System.Drawing.Point(34, 139);
+            this.surnamebox.Multiline = true;
+            this.surnamebox.Name = "surnamebox";
+            this.surnamebox.Size = new System.Drawing.Size(410, 50);
+            this.surnamebox.TabIndex = 5;
+            this.surnamebox.TextChanged += new System.EventHandler(this.surnamebox_TextChanged);
+            // 
             // eyes2
             // 
             this.eyes2.BackColor = System.Drawing.Color.White;
             this.eyes2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.eyes2.Image = global::AZS_New.Properties.Resources.скрыть;
-            this.eyes2.Location = new System.Drawing.Point(396, 273);
+            this.eyes2.Location = new System.Drawing.Point(397, 271);
             this.eyes2.Name = "eyes2";
             this.eyes2.Size = new System.Drawing.Size(48, 48);
             this.eyes2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -136,7 +179,7 @@
             this.eyes1.BackColor = System.Drawing.Color.White;
             this.eyes1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.eyes1.Image = global::AZS_New.Properties.Resources.показать;
-            this.eyes1.Location = new System.Drawing.Point(396, 272);
+            this.eyes1.Location = new System.Drawing.Point(396, 271);
             this.eyes1.Name = "eyes1";
             this.eyes1.Size = new System.Drawing.Size(48, 48);
             this.eyes1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -161,11 +204,12 @@
             // passbox
             // 
             this.passbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passbox.Location = new System.Drawing.Point(35, 271);
+            this.passbox.Location = new System.Drawing.Point(34, 271);
             this.passbox.Multiline = true;
             this.passbox.Name = "passbox";
             this.passbox.Size = new System.Drawing.Size(410, 50);
             this.passbox.TabIndex = 1;
+            this.passbox.TextChanged += new System.EventHandler(this.passbox_TextChanged);
             // 
             // loginbox
             // 
@@ -175,6 +219,7 @@
             this.loginbox.Name = "loginbox";
             this.loginbox.Size = new System.Drawing.Size(410, 50);
             this.loginbox.TabIndex = 0;
+            this.loginbox.TextChanged += new System.EventHandler(this.loginbox_TextChanged);
             // 
             // Registration
             // 
@@ -192,6 +237,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.infobox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyes2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyes1)).EndInit();
             this.ResumeLayout(false);
@@ -211,5 +257,8 @@
         private System.Windows.Forms.PictureBox backspace;
         private System.Windows.Forms.PictureBox eyes1;
         private System.Windows.Forms.PictureBox eyes2;
+        private System.Windows.Forms.TextBox secretbox;
+        private System.Windows.Forms.TextBox surnamebox;
+        private System.Windows.Forms.PictureBox infobox;
     }
 }
