@@ -143,6 +143,16 @@ namespace AZS_New.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _8665664_robot_robotics_icon {
+            get {
+                object obj = ResourceManager.GetObject("8665664_robot_robotics_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _9224381_padlock_lock_security_protection_secure_icon {
             get {
                 object obj = ResourceManager.GetObject("9224381_padlock_lock_security_protection_secure_icon", resourceCulture);

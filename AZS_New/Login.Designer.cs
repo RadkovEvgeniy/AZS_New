@@ -209,7 +209,7 @@
             this.eyes2.BackColor = System.Drawing.Color.White;
             this.eyes2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.eyes2.Image = global::AZS_New.Properties.Resources.скрыть;
-            this.eyes2.Location = new System.Drawing.Point(396, 273);
+            this.eyes2.Location = new System.Drawing.Point(396, 272);
             this.eyes2.Name = "eyes2";
             this.eyes2.Size = new System.Drawing.Size(48, 48);
             this.eyes2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

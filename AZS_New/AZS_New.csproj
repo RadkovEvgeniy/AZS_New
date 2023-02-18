@@ -156,5 +156,8 @@
   <ItemGroup>
     <None Include="Resources\peead.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8665664_robot_robotics_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
