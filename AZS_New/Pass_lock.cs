@@ -68,9 +68,9 @@ namespace AZS_New
             if (table.Rows.Count == 1 & captchabox.Text == nmb.ToString() )
             {
                 MessageBox.Show("Вход выполнен успешно");
-                Main_Form main = new Main_Form();
+                Hello hi = new Hello();
                 this.Hide();
-                main.ShowDialog();
+                hi.ShowDialog();
                 surnamebox.Text = "";
                 secretbox.Text = "";
             }

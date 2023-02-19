@@ -169,6 +169,7 @@ namespace AZS_New
         private void button1_Click(object sender, EventArgs e)
         {
             Pass_lock pas = new Pass_lock();
+            this.Hide();
             pas.ShowDialog();
         }
     }
