@@ -9,7 +9,7 @@ namespace AZS_New
 {
     internal class Database_connection
     {
-        SqlConnection SqlConnection = new SqlConnection(@"Data Source = ZHEKA-PC\SQLEXPRESS; Initial Catalog = AZS_new; Integrated Security = True");
+        SqlConnection SqlConnection = new SqlConnection(@"Data Source = ZHEKA-PC\SQLEXPRESS; Initial Catalog = AZS_for_diploma; Integrated Security = True");
 
         public void OpenConnection()
         {

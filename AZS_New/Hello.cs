@@ -12,10 +12,15 @@ namespace AZS_New
 {
     public partial class Hello : Form
     {
-        public Hello()
+        private readonly checkUser _user;
+
+        public Hello(checkUser user)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            _user = user;
+            label1.Text = $"Добро пожаловать " +
+                $"{_user.Login}!";
         }
 
         private void Hello_Load(object sender, EventArgs e)
@@ -29,14 +34,19 @@ namespace AZS_New
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label3.Text = string.Format("", i--);
+            label2.Text = string.Format("", i--);
             if (i == 0)
             {
                 timer1.Stop();
-                Main_Form main = new Main_Form();
+                Main_form main = new Main_form(_user);
                 this.Hide();
                 main.ShowDialog();
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

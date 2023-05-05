@@ -11,5 +11,6 @@ C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.pdb
 C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.Login.resources
 C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.Registration.resources
 C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.Hello.resources
-C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.Main_Form.resources
 C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.Pass_lock.resources
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.Main_form.resources
+C:\Users\bossr\source\repos\AZS_New\AZS_New\obj\Debug\AZS_New.Admin.resources

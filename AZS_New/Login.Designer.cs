@@ -35,7 +35,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.resetpass = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -72,6 +72,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::AZS_New.Properties.Resources._9224381_padlock_lock_security_protection_secure_icon;
             this.pictureBox2.Location = new System.Drawing.Point(12, 410);
             this.pictureBox2.Name = "pictureBox2";
@@ -79,9 +80,11 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::AZS_New.Properties.Resources._678132_account_user_person_profile_avatar_icon;
             this.pictureBox1.Location = new System.Drawing.Point(12, 224);
             this.pictureBox1.Name = "pictureBox1";
@@ -89,6 +92,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -103,7 +107,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(152)))), ((int)(((byte)(169)))));
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.resetpass);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
@@ -120,21 +124,21 @@
             this.panel2.Size = new System.Drawing.Size(515, 567);
             this.panel2.TabIndex = 0;
             // 
-            // button1
+            // resetpass
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(152)))), ((int)(((byte)(169)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(152)))), ((int)(((byte)(169)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Courier New", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(35, 494);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(346, 52);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Забыли пароль?";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.resetpass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.resetpass.FlatAppearance.BorderSize = 0;
+            this.resetpass.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(152)))), ((int)(((byte)(169)))));
+            this.resetpass.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(152)))), ((int)(((byte)(169)))));
+            this.resetpass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resetpass.Font = new System.Drawing.Font("Courier New", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.resetpass.Location = new System.Drawing.Point(35, 494);
+            this.resetpass.Name = "resetpass";
+            this.resetpass.Size = new System.Drawing.Size(346, 52);
+            this.resetpass.TabIndex = 11;
+            this.resetpass.Text = "Забыли пароль?";
+            this.resetpass.UseVisualStyleBackColor = true;
+            this.resetpass.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
@@ -254,6 +258,7 @@
             this.passbox.Size = new System.Drawing.Size(410, 50);
             this.passbox.TabIndex = 1;
             this.passbox.TextChanged += new System.EventHandler(this.passbox_TextChanged);
+            this.passbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passbox_KeyPress);
             // 
             // loginbox
             // 
@@ -264,6 +269,7 @@
             this.loginbox.Size = new System.Drawing.Size(410, 50);
             this.loginbox.TabIndex = 0;
             this.loginbox.TextChanged += new System.EventHandler(this.loginbox_TextChanged);
+            this.loginbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginbox_KeyPress);
             // 
             // timer1
             // 
@@ -307,7 +313,7 @@
         private System.Windows.Forms.PictureBox infobox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button resetpass;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer timer1;

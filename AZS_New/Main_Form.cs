@@ -10,17 +10,27 @@ using System.Windows.Forms;
 
 namespace AZS_New
 {
-    public partial class Main_Form : Form
+    public partial class Main_form : Form
     {
-        public Main_Form()
+        private readonly checkUser _user;
+
+        public Main_form(checkUser user)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            _user = user;
+            IsAdmin();
+            label1.Text = $"{_user.Login} ({_user.Status})";
         }
 
-        private void Main_Form_Load(object sender, EventArgs e)
+        private void IsAdmin()
         {
+            упрпавлениеToolStripMenuItem.Enabled = _user.IsAdmin;
+        }
 
+        private void упрпавлениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Admin().Show();
         }
     }
 }

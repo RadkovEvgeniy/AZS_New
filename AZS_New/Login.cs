@@ -30,7 +30,7 @@ namespace AZS_New
             label3.Visible = false;
             label4.Visible = false;
             label5.Visible = false;
-            button1.Visible = false;
+            resetpass.Visible = false;
         }
 
         private int count;
@@ -44,7 +44,7 @@ namespace AZS_New
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            String querystring = $"select Login_Users, Password_Users, Surname, Secret_words from Users where Login_Users = '{LoginUser}' and Password_Users = '{PassUser}'";
+            String querystring = $"select Login, Password, isAdmin from Users where Login = '{LoginUser}' and Password = '{PassUser}'";
 
             SqlCommand command = new SqlCommand(querystring, DataBase.getConnection());
             adapter.SelectCommand = command;
@@ -52,8 +52,10 @@ namespace AZS_New
 
             if (table.Rows.Count == 1)
             {
+                var user = new checkUser(table.Rows[0].ItemArray[0].ToString(), Convert.ToBoolean(table.Rows[0].ItemArray[2]));
+
                 MessageBox.Show("Вход выполнен успешно");
-                Hello hello = new Hello();
+                Hello hello = new Hello(user);
                 this.Hide();
                 hello.ShowDialog();
                 loginbox.Text = "";
@@ -81,7 +83,6 @@ namespace AZS_New
                     label3.Visible = true;
                     label4.Visible = true;
                     label5.Visible = true;
-                    button1.Visible = true;
 
                 }
             }
@@ -110,7 +111,8 @@ namespace AZS_New
 
         private void loginbox_TextChanged(object sender, EventArgs e)
         {
-            if(loginbox.Text.Length > 0 & passbox.Text.Length > 0)
+
+            if (loginbox.Text.Length > 0 & passbox.Text.Length > 0)
             {
                 enter.Enabled = true;
                 infobox.Visible = false;
@@ -151,7 +153,7 @@ namespace AZS_New
                 label3.Visible = false;
                 label4.Visible = false;
                 label5.Visible = false;
-                button1.Visible = false;
+                resetpass.Visible = true;
                 passbox.Visible = true;
                 loginbox.Visible = true;
                 enter.Visible = true;
@@ -160,7 +162,6 @@ namespace AZS_New
                 eyes1.Visible = true;
                 eyes2.Visible = true;
                 infobox.Visible = true;
-                create.Visible = true;
                 loginbox.Text = "";
                 passbox.Text = "";
             }
@@ -171,6 +172,29 @@ namespace AZS_New
             Pass_lock pas = new Pass_lock();
             this.Hide();
             pas.ShowDialog();
+        }
+
+        private void loginbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Space)
+                e.KeyChar = '\0';
+         
+        }
+
+        private void passbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Space)
+                e.KeyChar = '\0';
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Введите логин");
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Введите пароль");
         }
     }
 }

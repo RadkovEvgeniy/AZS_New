@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pass_lock));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.infobox = new System.Windows.Forms.PictureBox();
@@ -43,9 +43,10 @@
             this.eyes2 = new System.Windows.Forms.PictureBox();
             this.eyes1 = new System.Windows.Forms.PictureBox();
             this.enter = new System.Windows.Forms.Button();
-            this.secretbox = new System.Windows.Forms.TextBox();
-            this.surnamebox = new System.Windows.Forms.TextBox();
+            this.passbox = new System.Windows.Forms.TextBox();
+            this.loginbox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -59,10 +60,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(196)))), ((int)(((byte)(175)))));
+            this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -70,6 +71,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(756, 825);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::AZS_New.Properties.Resources._134192_information_question_icon;
+            this.pictureBox4.Location = new System.Drawing.Point(51, 447);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(45, 45);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 10;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox3
             // 
@@ -107,25 +120,15 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Courier New", 44F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(-4, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(358, 95);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "пароля";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 44F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(-4, 0);
+            this.label1.Font = new System.Drawing.Font("Courier New", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(8, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(782, 95);
+            this.label1.Size = new System.Drawing.Size(740, 103);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Восстановление";
+            this.label1.Text = "Сброс пароля";
             // 
             // panel2
             // 
@@ -137,8 +140,8 @@
             this.panel2.Controls.Add(this.eyes2);
             this.panel2.Controls.Add(this.eyes1);
             this.panel2.Controls.Add(this.enter);
-            this.panel2.Controls.Add(this.secretbox);
-            this.panel2.Controls.Add(this.surnamebox);
+            this.panel2.Controls.Add(this.passbox);
+            this.panel2.Controls.Add(this.loginbox);
             this.panel2.Location = new System.Drawing.Point(163, 179);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(593, 646);
@@ -226,29 +229,31 @@
             this.enter.Name = "enter";
             this.enter.Size = new System.Drawing.Size(346, 63);
             this.enter.TabIndex = 3;
-            this.enter.Text = "Войти";
+            this.enter.Text = "Сброс";
             this.enter.UseVisualStyleBackColor = false;
             this.enter.Click += new System.EventHandler(this.enter_Click);
             // 
-            // secretbox
+            // passbox
             // 
-            this.secretbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.secretbox.Location = new System.Drawing.Point(93, 177);
-            this.secretbox.Multiline = true;
-            this.secretbox.Name = "secretbox";
-            this.secretbox.Size = new System.Drawing.Size(410, 50);
-            this.secretbox.TabIndex = 2;
-            this.secretbox.TextChanged += new System.EventHandler(this.secretbox_TextChanged);
+            this.passbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passbox.Location = new System.Drawing.Point(93, 177);
+            this.passbox.Multiline = true;
+            this.passbox.Name = "passbox";
+            this.passbox.Size = new System.Drawing.Size(410, 50);
+            this.passbox.TabIndex = 2;
+            this.passbox.TextChanged += new System.EventHandler(this.secretbox_TextChanged);
+            this.passbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secretbox_KeyPress);
             // 
-            // surnamebox
+            // loginbox
             // 
-            this.surnamebox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.surnamebox.Location = new System.Drawing.Point(93, 53);
-            this.surnamebox.Multiline = true;
-            this.surnamebox.Name = "surnamebox";
-            this.surnamebox.Size = new System.Drawing.Size(410, 50);
-            this.surnamebox.TabIndex = 1;
-            this.surnamebox.TextChanged += new System.EventHandler(this.surnamebox_TextChanged);
+            this.loginbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginbox.Location = new System.Drawing.Point(93, 53);
+            this.loginbox.Multiline = true;
+            this.loginbox.Name = "loginbox";
+            this.loginbox.Size = new System.Drawing.Size(410, 50);
+            this.loginbox.TabIndex = 1;
+            this.loginbox.TextChanged += new System.EventHandler(this.surnamebox_TextChanged);
+            this.loginbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.surnamebox_KeyPress);
             // 
             // Pass_lock
             // 
@@ -261,6 +266,7 @@
             this.Load += new System.EventHandler(this.Pass_lock_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -278,12 +284,11 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox surnamebox;
-        private System.Windows.Forms.TextBox secretbox;
+        private System.Windows.Forms.TextBox loginbox;
+        private System.Windows.Forms.TextBox passbox;
         private System.Windows.Forms.Button enter;
         private System.Windows.Forms.PictureBox eyes1;
         private System.Windows.Forms.PictureBox eyes2;
@@ -292,5 +297,6 @@
         private System.Windows.Forms.Button resetbox;
         private System.Windows.Forms.PictureBox captchapic;
         private System.Windows.Forms.PictureBox infobox;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

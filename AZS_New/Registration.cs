@@ -32,10 +32,8 @@ namespace AZS_New
         {
             var LoginUser = loginbox.Text;
             var PassUser = passbox.Text;
-            var SurnameUser = surnamebox.Text;
-            var SecretUser = secretbox.Text;
 
-            string query_string = $"insert into Users (Login_Users, Password_Users, Surname, Secret_words) values ('{LoginUser}', '{PassUser}', '{SurnameUser}', '{SecretUser}')";
+            string query_string = $"insert into Users (Login, Password, isAdmin) values ('{LoginUser}', '{PassUser}', 0)";
 
             SqlCommand command = new SqlCommand(query_string, DataBase.getConnection());
 
@@ -67,7 +65,7 @@ namespace AZS_New
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            String querystring = $"select Login_Users, Password_Users, Surname, Secret_words from Users where Login_Users = '{login_user}' and Password_Users = '{pass_user}'";
+            String querystring = $"select Login, Password, isAdmin from Users where Login = '{login_user}' and Password = '{pass_user}'";
 
             SqlCommand command = new SqlCommand(querystring, DataBase.getConnection());
 
@@ -109,31 +107,17 @@ namespace AZS_New
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Введите логин и свою фамилию");
+            MessageBox.Show("Введите логин");
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Введите пароль и секретное слово. Оно понадобится для восстановления доступа");
+            MessageBox.Show("Введите пароль");
         }
 
         private void loginbox_TextChanged(object sender, EventArgs e)
         {
-            if(loginbox.Text.Length > 0 & passbox.Text.Length > 0 & surnamebox.Text.Length > 0 & secretbox.Text.Length > 0)
-            {
-                enter.Enabled = true;
-                infobox.Visible = false;
-            }
-            else
-            {
-                enter.Enabled = false;
-                infobox.Visible = true;
-            }
-        }
-
-        private void surnamebox_TextChanged(object sender, EventArgs e)
-        {
-            if(surnamebox.Text.Length > 0 & passbox.Text.Length > 0 & loginbox.Text.Length > 0 & secretbox.Text.Length > 0)
+            if(loginbox.Text.Length > 0 & passbox.Text.Length > 0)
             {
                 enter.Enabled = true;
                 infobox.Visible = false;
@@ -147,21 +131,7 @@ namespace AZS_New
 
         private void passbox_TextChanged(object sender, EventArgs e)
         {
-            if(passbox.Text.Length > 0 & loginbox.Text.Length > 0 & surnamebox.Text.Length > 0 & secretbox.Text.Length > 0)
-            {
-                enter.Enabled = true;
-                infobox.Visible = false;
-            }
-            else
-            {
-                enter.Enabled = false;
-                infobox.Visible = true;
-            }
-        }
-
-        private void secretbox_TextChanged(object sender, EventArgs e)
-        {
-            if(secretbox.Text.Length > 0 & loginbox.Text.Length > 0 & passbox.Text.Length > 0 & surnamebox.Text.Length > 0)
+            if(passbox.Text.Length > 0 & loginbox.Text.Length > 0)
             {
                 enter.Enabled = true;
                 infobox.Visible = false;
@@ -176,6 +146,18 @@ namespace AZS_New
         private void infobox_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Все поля должны быть заполнены");
+        }
+
+        private void loginbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Space)
+                e.KeyChar = '\0';
+        }
+
+        private void passbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Space)
+                e.KeyChar = '\0';
         }
     }
 }

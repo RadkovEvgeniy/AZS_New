@@ -36,61 +36,57 @@ namespace AZS_New
 
         private void Pass_lock_Load(object sender, EventArgs e)
         {
-            secretbox.PasswordChar = '*';
+            passbox.PasswordChar = '*';
             captchaload();
             enter.Enabled = false;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Введите свою Фамилию");
+            MessageBox.Show("Введите свой логин");
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Введите секретное слово");
+            MessageBox.Show("Придумайте новый пароль");
         }
 
         private void enter_Click(object sender, EventArgs e)
         {
-            var SurnameUser = surnamebox.Text;
-            var SecretUser = secretbox.Text;
+            DataBase.OpenConnection();
+            var login = loginbox.Text;
+            var password = passbox.Text;
 
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable table = new DataTable();
+            var changequery = $"update Users set Password = '{password}' where Login = '{login}'";
 
-            String querystring = $"select Login_Users, Password_Users, Surname, Secret_words from Users where Surname = '{SurnameUser}' and Secret_words = '{SecretUser}'";
+            var command = new SqlCommand(changequery, DataBase.getConnection());
 
-            SqlCommand command = new SqlCommand(querystring, DataBase.getConnection());
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-
-            if (table.Rows.Count == 1 & captchabox.Text == nmb.ToString() )
+            if (command.ExecuteNonQuery() == 1 & captchabox.Text == nmb.ToString() )
             {
-                MessageBox.Show("Вход выполнен успешно");
-                Hello hi = new Hello();
+                MessageBox.Show("Вы успешно изменили пароль");
+                Login hi = new Login();
                 this.Hide();
                 hi.ShowDialog();
-                surnamebox.Text = "";
-                secretbox.Text = "";
+                loginbox.Text = "";
+                passbox.Text = "";
             }
             else
             {
                 captchaload();
-                MessageBox.Show("Неверные данные");
+                MessageBox.Show("Произошла ошибка");
             }
         }
 
         private void eyes1_Click(object sender, EventArgs e)
         {
-            secretbox.UseSystemPasswordChar = false;
+            passbox.UseSystemPasswordChar = false;
             eyes1.Visible = false;
             eyes2.Visible = true;
         }
 
         private void eyes2_Click(object sender, EventArgs e)
         {
-            secretbox.UseSystemPasswordChar = true;
+            passbox.UseSystemPasswordChar = true;
             eyes1.Visible = true;
             eyes2.Visible = false;
         }
@@ -107,7 +103,7 @@ namespace AZS_New
 
         private void surnamebox_TextChanged(object sender, EventArgs e)
         {
-            if (surnamebox.Text.Length > 0 & secretbox.Text.Length > 0 & captchabox.Text.Length > 0)
+            if (loginbox.Text.Length > 0 & passbox.Text.Length > 0 & captchabox.Text.Length > 0)
             {
                 enter.Enabled = true;
                 infobox.Visible = false;
@@ -121,7 +117,7 @@ namespace AZS_New
 
         private void secretbox_TextChanged(object sender, EventArgs e)
         {
-            if (surnamebox.Text.Length > 0 & secretbox.Text.Length > 0 & captchabox.Text.Length > 0)
+            if (loginbox.Text.Length > 0 & passbox.Text.Length > 0 & captchabox.Text.Length > 0)
             {
                 enter.Enabled = true;
                 infobox.Visible = false;
@@ -135,7 +131,7 @@ namespace AZS_New
 
         private void captchabox_TextChanged(object sender, EventArgs e)
         {
-            if (surnamebox.Text.Length > 0 & secretbox.Text.Length > 0 & captchabox.Text.Length > 0)
+            if (loginbox.Text.Length > 0 & passbox.Text.Length > 0 & captchabox.Text.Length > 0)
             {
                 enter.Enabled = true;
                 infobox.Visible = false;
@@ -150,6 +146,23 @@ namespace AZS_New
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Подтвердите, что вы не робот");
+        }
+
+        private void surnamebox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Space)
+                e.KeyChar = '\0';
+        }
+
+        private void secretbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Space)
+                e.KeyChar = '\0';
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Для дополнительной информации нажмите на иконки возле полей");
         }
     }
 }
