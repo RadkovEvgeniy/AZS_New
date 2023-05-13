@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pass_lock));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -45,8 +44,8 @@
             this.enter = new System.Windows.Forms.Button();
             this.passbox = new System.Windows.Forms.TextBox();
             this.loginbox = new System.Windows.Forms.TextBox();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -60,7 +59,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(196)))), ((int)(((byte)(175)))));
-            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -71,18 +70,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(756, 825);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::AZS_New.Properties.Resources._134192_information_question_icon;
-            this.pictureBox4.Location = new System.Drawing.Point(51, 447);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 10;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox3
             // 
@@ -161,7 +148,7 @@
             // 
             // captchabox
             // 
-            this.captchabox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.captchabox.Font = new System.Drawing.Font("Courier New", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.captchabox.Location = new System.Drawing.Point(93, 416);
             this.captchabox.Multiline = true;
             this.captchabox.Name = "captchabox";
@@ -235,7 +222,7 @@
             // 
             // passbox
             // 
-            this.passbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passbox.Font = new System.Drawing.Font("Courier New", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passbox.Location = new System.Drawing.Point(93, 177);
             this.passbox.Multiline = true;
             this.passbox.Name = "passbox";
@@ -246,7 +233,7 @@
             // 
             // loginbox
             // 
-            this.loginbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginbox.Font = new System.Drawing.Font("Courier New", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.loginbox.Location = new System.Drawing.Point(93, 53);
             this.loginbox.Multiline = true;
             this.loginbox.Name = "loginbox";
@@ -254,6 +241,18 @@
             this.loginbox.TabIndex = 1;
             this.loginbox.TextChanged += new System.EventHandler(this.surnamebox_TextChanged);
             this.loginbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.surnamebox_KeyPress);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(139, 31);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(10, 23);
+            this.iconButton1.TabIndex = 11;
+            this.iconButton1.Text = "iconButton1";
+            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // Pass_lock
             // 
@@ -266,7 +265,6 @@
             this.Load += new System.EventHandler(this.Pass_lock_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -297,6 +295,6 @@
         private System.Windows.Forms.Button resetbox;
         private System.Windows.Forms.PictureBox captchapic;
         private System.Windows.Forms.PictureBox infobox;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

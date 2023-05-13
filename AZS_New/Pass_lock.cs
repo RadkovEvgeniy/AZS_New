@@ -18,7 +18,41 @@ namespace AZS_New
         public Pass_lock()
         {
             InitializeComponent();
+            sizeandlocation();
+        }
+
+        private void sizeandlocation()
+        {
             StartPosition = FormStartPosition.CenterScreen;
+            this.Size = new System.Drawing.Size(778, 881);
+            label1.Location = new System.Drawing.Point(5, 72);
+            panel2.Size = new System.Drawing.Size(593, 646);
+            panel2.Location = new System.Drawing.Point(163, 179);
+            loginbox.Size = new System.Drawing.Size(410, 50);
+            loginbox.Location = new System.Drawing.Point(93, 53);
+            passbox.Size = new System.Drawing.Size(410, 50);
+            passbox.Location = new System.Drawing.Point(93, 177);
+            captchabox.Size = new System.Drawing.Size(410, 50);
+            captchabox.Location = new System.Drawing.Point(93, 416);
+            enter.Size = new System.Drawing.Size(346, 63);
+            enter.Location = new System.Drawing.Point(93, 535);
+            resetbox.Size = new System.Drawing.Size(176, 81);
+            resetbox.Location = new System.Drawing.Point(327, 288);
+            captchapic.Size = new System.Drawing.Size(194, 62);
+            captchapic.Location = new System.Drawing.Point(93, 307);
+            eyes1.Size = new System.Drawing.Size(48, 48);
+            eyes1.Location = new System.Drawing.Point(455, 177);
+            eyes2.Size = new System.Drawing.Size(48, 48);
+            eyes2.Location = new System.Drawing.Point(455, 177);
+            pictureBox1.Size = new System.Drawing.Size(120, 120);
+            pictureBox1.Location = new System.Drawing.Point(12, 191);
+            pictureBox2.Size = new System.Drawing.Size(120, 120);
+            pictureBox2.Location = new System.Drawing.Point(12, 320);
+            pictureBox3.Size = new System.Drawing.Size(120, 120);
+            pictureBox3.Location = new System.Drawing.Point(12, 501);
+            infobox.Size = new System.Drawing.Size(45, 45);
+            infobox.Location = new System.Drawing.Point(445, 544);
+            iconButton1.Visible = false;
         }
 
         int nmb = 0;
@@ -28,7 +62,7 @@ namespace AZS_New
             Random rnd = new Random();
             nmb = rnd.Next(1000, 10000);
             var img = new Bitmap(this.captchapic.Width, this.captchapic.Height);
-            var font = new Font("TimesNewRoman", 25, FontStyle.Strikeout, GraphicsUnit.Pixel);
+            var font = new Font("CourierNew", 42, FontStyle.Strikeout, GraphicsUnit.Pixel);
             var graphics = Graphics.FromImage(img);
             graphics.DrawString(nmb.ToString(), font, Brushes.Red, new Point(0, 0));
             captchapic.Image = img;
@@ -158,11 +192,6 @@ namespace AZS_New
         {
             if (e.KeyChar == (int)Keys.Space)
                 e.KeyChar = '\0';
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Для дополнительной информации нажмите на иконки возле полей");
         }
     }
 }

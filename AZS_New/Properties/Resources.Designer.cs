@@ -153,6 +153,26 @@ namespace AZS_New.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _8726087_minus_circle_icon {
+            get {
+                object obj = ResourceManager.GetObject("8726087_minus_circle_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _8726254_plus_circle_icon {
+            get {
+                object obj = ResourceManager.GetObject("8726254_plus_circle_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _9224381_padlock_lock_security_protection_secure_icon {
             get {
                 object obj = ResourceManager.GetObject("9224381_padlock_lock_security_protection_secure_icon", resourceCulture);

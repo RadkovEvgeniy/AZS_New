@@ -48,6 +48,7 @@
             this.passbox = new System.Windows.Forms.TextBox();
             this.loginbox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -60,6 +61,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(196)))), ((int)(((byte)(175)))));
+            this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
@@ -67,7 +69,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(670, 738);
+            this.panel1.Size = new System.Drawing.Size(700, 753);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox2
@@ -121,7 +123,7 @@
             this.panel2.Controls.Add(this.loginbox);
             this.panel2.Location = new System.Drawing.Point(163, 179);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(515, 567);
+            this.panel2.Size = new System.Drawing.Size(537, 574);
             this.panel2.TabIndex = 0;
             // 
             // resetpass
@@ -251,7 +253,7 @@
             // 
             // passbox
             // 
-            this.passbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.passbox.Font = new System.Drawing.Font("Courier New", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passbox.Location = new System.Drawing.Point(35, 271);
             this.passbox.Multiline = true;
             this.passbox.Name = "passbox";
@@ -262,7 +264,7 @@
             // 
             // loginbox
             // 
-            this.loginbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginbox.Font = new System.Drawing.Font("Courier New", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.loginbox.Location = new System.Drawing.Point(35, 83);
             this.loginbox.Multiline = true;
             this.loginbox.Name = "loginbox";
@@ -275,11 +277,23 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // iconButton1
+            // 
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(12, 24);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(10, 25);
+            this.iconButton1.TabIndex = 4;
+            this.iconButton1.Text = "iconButton1";
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 738);
+            this.ClientSize = new System.Drawing.Size(700, 753);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
@@ -317,6 +331,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer timer1;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
 

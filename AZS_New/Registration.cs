@@ -18,7 +18,35 @@ namespace AZS_New
         public Registration()
         {
             InitializeComponent();
+            sizeandlocation();
+        }
+
+        private void sizeandlocation()
+        {
             StartPosition = FormStartPosition.CenterScreen;
+            this.Size = new System.Drawing.Size(692, 794);
+            label1.Location = new System.Drawing.Point(5, 73);
+            panel2.Size = new System.Drawing.Size(515, 567);
+            panel2.Location = new System.Drawing.Point(163, 179);
+            loginbox.Size = new System.Drawing.Size(410, 50);
+            loginbox.Location = new System.Drawing.Point(35, 83);
+            passbox.Size = new System.Drawing.Size(410, 50);
+            passbox.Location = new System.Drawing.Point(35, 271);
+            enter.Size = new System.Drawing.Size(424, 65);
+            enter.Location = new System.Drawing.Point(21, 425);
+            pictureBox1.Size = new System.Drawing.Size(120, 120);
+            pictureBox1.Location = new System.Drawing.Point(12, 224);
+            pictureBox2.Size = new System.Drawing.Size(120, 120);
+            pictureBox2.Location = new System.Drawing.Point(12, 410);
+            eyes1.Size = new System.Drawing.Size(48, 48);
+            eyes1.Location = new System.Drawing.Point(397, 271);
+            eyes2.Size = new System.Drawing.Size(48, 48);
+            eyes2.Location = new System.Drawing.Point(397, 271);
+            infobox.Size = new System.Drawing.Size(45, 45);
+            infobox.Location = new System.Drawing.Point(450, 435);
+            backspace.Size = new System.Drawing.Size(52, 52);
+            backspace.Location = new System.Drawing.Point(4, 13);
+            iconButton1.Visible = false;
         }
 
         private void Registration_Load(object sender, EventArgs e)

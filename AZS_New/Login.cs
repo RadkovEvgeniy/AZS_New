@@ -18,7 +18,41 @@ namespace AZS_New
         public Login()
         {
             InitializeComponent();
+            sizeandlocation();
+        }
+
+        private void sizeandlocation()
+        {
             StartPosition = FormStartPosition.CenterScreen;
+            this.Size = new System.Drawing.Size(692, 794);
+            panel2.Size = new System.Drawing.Size(738, 768);
+            panel2.Location = new System.Drawing.Point(163, 179);
+            loginbox.Size = new System.Drawing.Size(410, 50);
+            loginbox.Location = new System.Drawing.Point(35, 83);
+            passbox.Size = new System.Drawing.Size(410, 50);
+            passbox.Location = new System.Drawing.Point(35, 271);
+            enter.Size = new System.Drawing.Size(346, 63);
+            enter.Location = new System.Drawing.Point(35, 425);
+            pictureBox1.Size = new System.Drawing.Size(120, 120);
+            pictureBox1.Location = new System.Drawing.Point(12, 224);
+            pictureBox2.Size = new System.Drawing.Size(120, 120);
+            pictureBox2.Location = new System.Drawing.Point(12, 410);
+            eyes1.Size = new System.Drawing.Size(48, 48);
+            eyes1.Location = new System.Drawing.Point(396, 271);
+            eyes2.Size = new System.Drawing.Size(48, 48);
+            eyes2.Location = new System.Drawing.Point(396, 271);
+            infobox.Size = new System.Drawing.Size(45, 45);
+            infobox.Location = new System.Drawing.Point(387, 434);
+            resetpass.Size = new System.Drawing.Size(346, 52);
+            resetpass.Location = new System.Drawing.Point(35, 494);
+            create.Size = new System.Drawing.Size(346, 52);
+            create.Location = new System.Drawing.Point(35, 494);
+            label1.Location = new System.Drawing.Point(5, 73);
+            label2.Location = new System.Drawing.Point(3, 20);
+            label3.Location = new System.Drawing.Point(3, 136);
+            label4.Location = new System.Drawing.Point(3, 175);
+            label5.Location = new System.Drawing.Point(158, 175);
+            iconButton1.Visible = false;
         }
 
         private void Login_Load(object sender, EventArgs e)

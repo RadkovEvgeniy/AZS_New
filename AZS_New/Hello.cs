@@ -18,6 +18,7 @@ namespace AZS_New
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            this.Size = new System.Drawing.Size(1335, 727);
             _user = user;
             label1.Text = $"Добро пожаловать " +
                 $"{_user.Login}!";
@@ -42,11 +43,6 @@ namespace AZS_New
                 this.Hide();
                 main.ShowDialog();
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
