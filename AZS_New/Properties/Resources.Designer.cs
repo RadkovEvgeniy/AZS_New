@@ -83,6 +83,26 @@ namespace AZS_New.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _134226_back_arrow_left_icon {
+            get {
+                object obj = ResourceManager.GetObject("134226_back_arrow_left_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1564505_close_delete_exit_remove_icon {
+            get {
+                object obj = ResourceManager.GetObject("1564505_close_delete_exit_remove_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _211762_information_icon {
             get {
                 object obj = ResourceManager.GetObject("211762_information_icon", resourceCulture);

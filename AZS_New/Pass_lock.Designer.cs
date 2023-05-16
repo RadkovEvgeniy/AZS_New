@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pass_lock));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -44,7 +45,7 @@
             this.enter = new System.Windows.Forms.Button();
             this.passbox = new System.Windows.Forms.TextBox();
             this.loginbox = new System.Windows.Forms.TextBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.pictureclose = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,11 +55,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.captchapic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyes2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyes1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureclose)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(196)))), ((int)(((byte)(175)))));
+            this.panel1.Controls.Add(this.pictureclose);
             this.panel1.Controls.Add(this.iconButton1);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -70,6 +73,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(756, 825);
             this.panel1.TabIndex = 0;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(139, 31);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(10, 23);
+            this.iconButton1.TabIndex = 11;
+            this.iconButton1.Text = "iconButton1";
+            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // pictureBox3
             // 
@@ -242,17 +257,17 @@
             this.loginbox.TextChanged += new System.EventHandler(this.surnamebox_TextChanged);
             this.loginbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.surnamebox_KeyPress);
             // 
-            // iconButton1
+            // pictureclose
             // 
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(139, 31);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(10, 23);
-            this.iconButton1.TabIndex = 11;
-            this.iconButton1.Text = "iconButton1";
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.pictureclose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureclose.Image = global::AZS_New.Properties.Resources._1564505_close_delete_exit_remove_icon;
+            this.pictureclose.Location = new System.Drawing.Point(701, 13);
+            this.pictureclose.Name = "pictureclose";
+            this.pictureclose.Size = new System.Drawing.Size(52, 52);
+            this.pictureclose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureclose.TabIndex = 12;
+            this.pictureclose.TabStop = false;
+            this.pictureclose.Click += new System.EventHandler(this.pictureclose_Click);
             // 
             // Pass_lock
             // 
@@ -260,6 +275,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(756, 825);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Pass_lock";
             this.Load += new System.EventHandler(this.Pass_lock_Load);
@@ -274,6 +290,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.captchapic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyes2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyes1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureclose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -296,5 +313,6 @@
         private System.Windows.Forms.PictureBox captchapic;
         private System.Windows.Forms.PictureBox infobox;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.PictureBox pictureclose;
     }
 }

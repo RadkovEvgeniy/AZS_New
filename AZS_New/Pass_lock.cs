@@ -24,7 +24,7 @@ namespace AZS_New
         private void sizeandlocation()
         {
             StartPosition = FormStartPosition.CenterScreen;
-            this.Size = new System.Drawing.Size(778, 881);
+            this.Size = new System.Drawing.Size(755, 825);
             label1.Location = new System.Drawing.Point(5, 72);
             panel2.Size = new System.Drawing.Size(593, 646);
             panel2.Location = new System.Drawing.Point(163, 179);
@@ -52,6 +52,8 @@ namespace AZS_New
             pictureBox3.Location = new System.Drawing.Point(12, 501);
             infobox.Size = new System.Drawing.Size(45, 45);
             infobox.Location = new System.Drawing.Point(445, 544);
+            pictureclose.Size = new System.Drawing.Size(52, 52);
+            pictureclose.Location = new System.Drawing.Point(701, 13);
             iconButton1.Visible = false;
         }
 
@@ -192,6 +194,11 @@ namespace AZS_New
         {
             if (e.KeyChar == (int)Keys.Space)
                 e.KeyChar = '\0';
+        }
+
+        private void pictureclose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

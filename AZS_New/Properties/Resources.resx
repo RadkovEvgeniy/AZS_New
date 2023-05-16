@@ -136,8 +136,14 @@
   <data name="134182_information_question_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\134182_information_question_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="1564505_close_delete_exit_remove_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1564505_close_delete_exit_remove_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="678158_account_add_friend_person_social_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\678158_account_add_friend_person_social_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="8726087_minus_circle_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\8726087_minus_circle_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="211762_information_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\211762_information_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,7 +169,7 @@
   <data name="proba" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\proba.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="8726087_minus_circle_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\8726087_minus_circle_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="134226_back_arrow_left_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\134226_back_arrow_left_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

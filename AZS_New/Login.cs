@@ -24,7 +24,7 @@ namespace AZS_New
         private void sizeandlocation()
         {
             StartPosition = FormStartPosition.CenterScreen;
-            this.Size = new System.Drawing.Size(692, 794);
+            this.Size = new System.Drawing.Size(675, 740);
             panel2.Size = new System.Drawing.Size(738, 768);
             panel2.Location = new System.Drawing.Point(163, 179);
             loginbox.Size = new System.Drawing.Size(410, 50);
@@ -52,6 +52,8 @@ namespace AZS_New
             label3.Location = new System.Drawing.Point(3, 136);
             label4.Location = new System.Drawing.Point(3, 175);
             label5.Location = new System.Drawing.Point(158, 175);
+            pictureclose.Size = new System.Drawing.Size(52, 52);
+            pictureclose.Location = new System.Drawing.Point(613, 13);
             iconButton1.Visible = false;
         }
 
@@ -229,6 +231,11 @@ namespace AZS_New
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Введите пароль");
+        }
+
+        private void pictureclose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

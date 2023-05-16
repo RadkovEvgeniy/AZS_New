@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using System.Data.SqlClient;
+using System.Net;
+using System.Net.Mail;
 
 namespace AZS_New
 {
@@ -16,10 +18,21 @@ namespace AZS_New
     {
         Database_connection DataBase = new Database_connection();
 
+        DataTable type_of_fuel = new DataTable();
+
+        private static string file;
+
         private readonly checkUser _user;
 
         private IconButton currentBtn;
         private Panel leftborderBtn;
+
+        Image img;
+        string title, title2, title3, title4, title5;
+        string quantity, quantity2, quantity3, quantity4, quantity5;
+        string cost, cost2, cost3, cost4, cost5;
+        float sum, sum2, sum3, sum4, sum5;
+        float sumAll;
 
         public Main_form(checkUser user)
         {
@@ -35,6 +48,7 @@ namespace AZS_New
             iconPictureBox1.IconChar = IconChar.Home;
             createcolumnsAdmin();
             refreshdatagridAdmin(dataGridView3);
+            buttonemail.Enabled = false;
         }
 
         private void visisbleelements()
@@ -66,6 +80,8 @@ namespace AZS_New
             textcost3.Visible = false;
             textcost4.Visible = false;
             textcost5.Visible = false;
+            textemail.Visible = false;
+            labelemail.Visible = false;
         }
         
         private void sizeandlocation()
@@ -83,12 +99,12 @@ namespace AZS_New
             iconPictureBox1.IconSize = 45;
             iconPictureBox1.Location = new System.Drawing.Point(6, 0);
             label2.Location = new System.Drawing.Point(62, 0);
-            dataGridView3.Size = new System.Drawing.Size(696, 415);
+            dataGridView3.Size = new System.Drawing.Size(780, 415);
             dataGridView3.Location = new System.Drawing.Point(133, 80);
             saveButton3.Size = new System.Drawing.Size(291, 65);
             saveButton3.Location = new System.Drawing.Point(133, 730);
             deleteButton3.Size = new System.Drawing.Size(291, 65);
-            deleteButton3.Location = new System.Drawing.Point(538, 730);
+            deleteButton3.Location = new System.Drawing.Point(622, 730);
             label_name_t.Location = new System.Drawing.Point(34, 50);
             label_quantity.Location = new System.Drawing.Point(342, 50);
             labelcost.Location = new System.Drawing.Point(552, 50);
@@ -138,6 +154,17 @@ namespace AZS_New
             pictureminus3.Location = new System.Drawing.Point(682, 199);
             pictureminus4.Size = new System.Drawing.Size(39, 39);
             pictureminus4.Location = new System.Drawing.Point(682, 240);
+            picturereceipt.Size = new System.Drawing.Size(1440, 954);
+            picturereceipt.Location = new System.Drawing.Point(797, 50);
+            buttonCreateReceipt.Size = new System.Drawing.Size(637, 72);
+            buttonCreateReceipt.Location = new System.Drawing.Point(39, 324);
+            buttonprint.Size = new System.Drawing.Size(637, 72);
+            buttonprint.Location = new System.Drawing.Point(39, 400);
+            buttonemail.Size = new System.Drawing.Size(637, 72);
+            buttonemail.Location = new System.Drawing.Point(39, 558);
+            textemail.Size = new System.Drawing.Size(637, 32);
+            textemail.Location = new System.Drawing.Point(39, 520);
+            labelemail.Location = new System.Drawing.Point(39, 489);
             homePanel.Dock = DockStyle.Fill;
             salePanel.Dock = DockStyle.Fill;
             typePanel.Dock = DockStyle.Fill;
@@ -188,6 +215,35 @@ namespace AZS_New
             managementButton.Enabled = _user.IsAdmin;
         }
 
+        private void UpdateDataType()
+        {
+            type_of_fuel.Clear();
+
+            comboBox1.Items.Clear();
+            comboBox2.Items.Clear();
+            comboBox3.Items.Clear();
+            comboBox4.Items.Clear();
+            comboBox5.Items.Clear();
+
+            DataBase.OpenConnection();
+
+            type_of_fuel.Load(new SqlCommand($"select * from Type_of_fuel", DataBase.getConnection()).ExecuteReader());
+
+            string fuel = "";
+
+            foreach(DataRow dr in type_of_fuel.Rows)
+            {
+                fuel = "";
+                fuel += dr.ItemArray[1].ToString();
+                comboBox1.Items.Add(fuel);
+                comboBox2.Items.Add(fuel);
+                comboBox3.Items.Add(fuel);
+                comboBox4.Items.Add(fuel);
+                comboBox5.Items.Add(fuel);
+            }
+            DataBase.CloseConnection();
+        }
+
         private void createcolumnsAdmin()
         {
             dataGridView3.Columns.Add("ID", "Номер пользователя");
@@ -196,10 +252,8 @@ namespace AZS_New
             var checkColumn = new DataGridViewCheckBoxColumn();
             checkColumn.HeaderText = "Доступ администратора";
             dataGridView3.Columns.Add(checkColumn);
-            dataGridView3.Columns[0].Width = 140;
-            dataGridView3.Columns[1].Width = 130;
-            dataGridView3.Columns[2].Width = 130;
-            dataGridView3.Columns[3].Width = 170;
+            dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
         }
 
         private void readsinglerowAdmin(DataGridView dgw, IDataRecord rec)
@@ -236,6 +290,7 @@ namespace AZS_New
             salePanel.Visible = true;
             typePanel.Visible = false;
             managementPanel.Visible = false;
+            UpdateDataType();
         }
 
         private void typeButton_Click(object sender, EventArgs e)
@@ -266,6 +321,127 @@ namespace AZS_New
             Login login = new Login();
             this.Hide();
             login.ShowDialog();
+        }
+
+        private void buttonCreateReceipt_Click(object sender, EventArgs e)
+        {
+            title = comboBox1.Text;
+            title2 = comboBox2.Text;
+            title3 = comboBox3.Text;
+            title4 = comboBox4.Text;
+            title5 = comboBox5.Text;
+            quantity = numericUpDown1.Text;
+            quantity2 = numericUpDown2.Text;
+            quantity3 = numericUpDown3.Text;
+            quantity4 = numericUpDown4.Text;
+            quantity5 = numericUpDown5.Text;
+            cost = textcost1.Text;
+            cost2 = textcost2.Text;
+            cost3 = textcost3.Text;
+            cost4 = textcost4.Text;
+            cost5 = textcost5.Text;
+
+            //Расчет суммы
+            if(textcost1.TextLength >= 1)
+            {
+                float a = float.Parse(numericUpDown1.Text);
+                float b = float.Parse(textcost1.Text);
+                sum = a * b;
+                sum.ToString();
+            }
+            if(textcost2.TextLength >= 1)
+            {
+                float a2 = float.Parse(numericUpDown2.Text);
+                float b2 = float.Parse(textcost2.Text);
+                sum2 = a2 * b2;
+                sum2.ToString();
+            }
+            if (textcost3.TextLength >= 1)
+            {
+                float a3 = float.Parse(numericUpDown3.Text);
+                float b3 = float.Parse(textcost3.Text);
+                sum3 = a3 * b3;
+                sum3.ToString();
+            }
+            if (textcost4.TextLength >= 1)
+            {
+                float a4 = float.Parse(numericUpDown4.Text);
+                float b4 = float.Parse(textcost4.Text);
+                sum4 = a4 * b4;
+                sum4.ToString();
+            }
+            if (textcost5.TextLength >= 1)
+            {
+                float a5 = float.Parse(numericUpDown5.Text);
+                float b5 = float.Parse(textcost5.Text);
+                sum5 = a5 * b5;
+                sum5.ToString();
+            }
+
+            //Общая сумма
+            sumAll = sum + sum2 + sum3 + sum4 + sum5;
+            sumAll.ToString();
+
+            img = DrawKvit(title, title2, title3, title4, title5,
+                quantity, quantity2, quantity3, quantity4, quantity5,
+                cost, cost2, cost3, cost4, cost5,
+                sum, sum2, sum3, sum4, sum5,
+                sumAll);
+            picturereceipt.Image = img;
+        }
+
+        private void buttonemail_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog OFD = new OpenFileDialog();
+            OFD.ShowDialog();
+            file = OFD.FileName;
+
+            try
+            {
+                MailMessage mes = new MailMessage();
+                mes.From = new MailAddress("boss.radkov2000@list.ru");
+                mes.To.Add(new MailAddress(textemail.Text));
+                mes.Subject = "Электронный чек";
+                mes.Body = $"Вы получили электронный чек на сумму: {sumAll} ₽";
+                Attachment sendfile = new Attachment(file);
+                mes.Attachments.Add(sendfile);
+
+                SmtpClient client = new SmtpClient();
+                client.Host = "smtp.mail.ru";
+                client.Port = 587;
+                client.EnableSsl = true;
+                client.Credentials = new NetworkCredential("boss.radkov2000@list.ru", "z4tLFWH3hcRhydMeArm0");
+
+                client.Send(mes);
+                MessageBox.Show("Письмо успешно отправлено!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }  
+        }   
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(img, 50, 50);
+        }
+
+        private void buttonprint_Click(object sender, EventArgs e)
+        {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+            labelemail.Visible = true;
+            textemail.Visible = true;
+        }
+
+        private void textemail_TextChanged(object sender, EventArgs e)
+        {
+            if(textemail.TextLength >= 1)
+            {
+                buttonemail.Enabled = true;
+            }
         }
 
         private void saveButton3_Click(object sender, EventArgs e)
@@ -352,6 +528,9 @@ namespace AZS_New
             numericUpDown2.Visible = false;
             textcost2.Visible = false;
             pictureplus1.Visible = true;
+            comboBox2.Text = "";
+            numericUpDown2.Value = 0;
+            textcost2.Text = "";
         }
 
         private void pictureminus2_Click(object sender, EventArgs e)
@@ -363,6 +542,9 @@ namespace AZS_New
             textcost3.Visible = false;
             pictureplus2.Visible = true;
             pictureminus1.Visible = true;
+            comboBox3.Text = "";
+            numericUpDown3.Value = 0;
+            textcost3.Text = "";
         }
 
         private void pictureminus3_Click(object sender, EventArgs e)
@@ -374,6 +556,9 @@ namespace AZS_New
             textcost4.Visible = false;
             pictureplus3.Visible = true;
             pictureminus2.Visible = true;
+            comboBox4.Text = "";
+            numericUpDown4.Value = 0;
+            textcost4.Text = "";
         }
 
         private void pictureminus4_Click(object sender, EventArgs e)
@@ -384,6 +569,316 @@ namespace AZS_New
             textcost5.Visible = false;
             pictureplus4.Visible = true;
             pictureminus3.Visible = true;
+            comboBox5.Text = "";
+            numericUpDown5.Value = 0;
+            textcost5.Text = "";
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataBase.OpenConnection();
+            type_of_fuel.Load(new SqlCommand($"select * from Type_of_fuel where Title = '{comboBox1.SelectedItem.ToString()}'", DataBase.getConnection()).ExecuteReader());
+
+            string cost = "";
+
+            foreach (DataRow dr in type_of_fuel.Rows)
+            {
+                cost = "";
+                cost += dr.ItemArray[4].ToString();
+                if (comboBox1.SelectedIndex == 0)
+                {
+                    textcost1.Text = cost;
+                }
+                if (comboBox1.SelectedIndex == 1)
+                {
+                    textcost1.Text = cost;
+                }
+
+                if (comboBox1.SelectedIndex == 2)
+                {
+                    textcost1.Text = cost;
+                }
+                if (comboBox1.SelectedIndex == 3)
+                {
+                    textcost1.Text = cost;
+                }
+                if (comboBox1.SelectedIndex == 4)
+                {
+                    textcost1.Text = cost;
+                }
+                if (comboBox1.SelectedIndex == 5)
+                {
+                    textcost1.Text = cost;
+                }
+            }
+
+            DataBase.CloseConnection();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataBase.OpenConnection();
+            type_of_fuel.Load(new SqlCommand($"select * from Type_of_fuel where Title = '{comboBox2.SelectedItem.ToString()}'", DataBase.getConnection()).ExecuteReader());
+
+            string cost = "";
+
+            foreach (DataRow dr in type_of_fuel.Rows)
+            {
+                cost = "";
+                cost += dr.ItemArray[4].ToString();
+                if (comboBox2.SelectedIndex == 0)
+                {
+                    textcost2.Text = cost;
+                }
+                if (comboBox2.SelectedIndex == 1)
+                {
+                    textcost2.Text = cost;
+                }
+
+                if (comboBox2.SelectedIndex == 2)
+                {
+                    textcost2.Text = cost;
+                }
+                if (comboBox2.SelectedIndex == 3)
+                {
+                    textcost2.Text = cost;
+                }
+                if (comboBox2.SelectedIndex == 4)
+                {
+                    textcost2.Text = cost;
+                }
+                if (comboBox2.SelectedIndex == 5)
+                {
+                    textcost2.Text = cost;
+                }
+            }
+
+            DataBase.CloseConnection();
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataBase.OpenConnection();
+            type_of_fuel.Load(new SqlCommand($"select * from Type_of_fuel where Title = '{comboBox3.SelectedItem.ToString()}'", DataBase.getConnection()).ExecuteReader());
+
+            string cost = "";
+
+            foreach (DataRow dr in type_of_fuel.Rows)
+            {
+                cost = "";
+                cost += dr.ItemArray[4].ToString();
+                if (comboBox3.SelectedIndex == 0)
+                {
+                    textcost3.Text = cost;
+                }
+                if (comboBox3.SelectedIndex == 1)
+                {
+                    textcost3.Text = cost;
+                }
+
+                if (comboBox3.SelectedIndex == 2)
+                {
+                    textcost3.Text = cost;
+                }
+                if (comboBox3.SelectedIndex == 3)
+                {
+                    textcost3.Text = cost;
+                }
+                if (comboBox3.SelectedIndex == 4)
+                {
+                    textcost3.Text = cost;
+                }
+                if (comboBox3.SelectedIndex == 5)
+                {
+                    textcost3.Text = cost;
+                }
+            }
+
+            DataBase.CloseConnection();
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataBase.OpenConnection();
+            type_of_fuel.Load(new SqlCommand($"select * from Type_of_fuel where Title = '{comboBox4.SelectedItem.ToString()}'", DataBase.getConnection()).ExecuteReader());
+
+            string cost = "";
+
+            foreach (DataRow dr in type_of_fuel.Rows)
+            {
+                cost = "";
+                cost += dr.ItemArray[4].ToString();
+                if (comboBox1.SelectedIndex == 0)
+                {
+                    textcost4.Text = cost;
+                }
+                if (comboBox4.SelectedIndex == 1)
+                {
+                    textcost4.Text = cost;
+                }
+
+                if (comboBox4.SelectedIndex == 2)
+                {
+                    textcost4.Text = cost;
+                }
+                if (comboBox4.SelectedIndex == 3)
+                {
+                    textcost4.Text = cost;
+                }
+                if (comboBox4.SelectedIndex == 4)
+                {
+                    textcost4.Text = cost;
+                }
+                if (comboBox4.SelectedIndex == 5)
+                {
+                    textcost4.Text = cost;
+                }
+            }
+
+            DataBase.CloseConnection();
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataBase.OpenConnection();
+            type_of_fuel.Load(new SqlCommand($"select * from Type_of_fuel where Title = '{comboBox5.SelectedItem.ToString()}'", DataBase.getConnection()).ExecuteReader());
+
+            string cost = "";
+
+            foreach (DataRow dr in type_of_fuel.Rows)
+            {
+                cost = "";
+                cost += dr.ItemArray[4].ToString();
+                if (comboBox5.SelectedIndex == 0)
+                {
+                    textcost5.Text = cost;
+                }
+                if (comboBox5.SelectedIndex == 1)
+                {
+                    textcost5.Text = cost;
+                }
+
+                if (comboBox5.SelectedIndex == 2)
+                {
+                    textcost5.Text = cost;
+                }
+                if (comboBox5.SelectedIndex == 3)
+                {
+                    textcost5.Text = cost;
+                }
+                if (comboBox5.SelectedIndex == 4)
+                {
+                    textcost5.Text = cost;
+                }
+                if (comboBox5.SelectedIndex == 5)
+                {
+                    textcost5.Text = cost;
+                }
+            }
+
+            DataBase.CloseConnection();
+        }
+
+        public Bitmap DrawKvit(string title, string title2, string title3, string title4, string title5,
+           string quntity, string quntity2, string quntity3, string quntity4, string quntity5,
+           string cost, string cost2, string cost3, string cost4, string cost5,
+           float sum, float sum2, float sum3, float sum4, float sum5,
+           float sumAll)
+        {
+            Bitmap bmp = new Bitmap(picturereceipt.Width, picturereceipt.Height);
+            Graphics graphics = Graphics.FromImage(bmp);
+
+            Font font = new Font("Times New Roman", 20);
+            Font font2 = new Font("Times New Roman", 16);
+            Font sfont = new Font("Times New Roman", 10);
+            graphics.DrawRectangle(new Pen(Brushes.Black), 0, 0, 1050, 780);
+            graphics.DrawString("Товарный чек", font, Brushes.Black, 375, 45);
+
+            //Строки
+            graphics.DrawRectangle(new Pen(Brushes.Black), 75, 135, 900, 60);
+            graphics.DrawRectangle(new Pen(Brushes.Black), 75, 195, 900, 60);
+            graphics.DrawRectangle(new Pen(Brushes.Black), 75, 255, 900, 60);
+            graphics.DrawRectangle(new Pen(Brushes.Black), 75, 315, 900, 60);
+            graphics.DrawRectangle(new Pen(Brushes.Black), 75, 375, 900, 60);
+            graphics.DrawRectangle(new Pen(Brushes.Black), 75, 435, 900, 60);
+
+            //Столбцы
+            graphics.DrawRectangle(new Pen(Brushes.Black), 75, 135, 315, 360);
+            graphics.DrawRectangle(new Pen(Brushes.Black), 390, 135, 180, 360);
+            graphics.DrawRectangle(new Pen(Brushes.Black), 570, 135, 150, 360);
+
+            //Наименование
+            graphics.DrawString("Наименование", font2, Brushes.Black, 120, 150);
+
+            graphics.DrawString($"{title}", font2, Brushes.Black, 165, 210);
+            graphics.DrawString($"{title2}", font2, Brushes.Black, 165, 270);
+            graphics.DrawString($"{title3}", font2, Brushes.Black, 165, 330);
+            graphics.DrawString($"{title4}", font2, Brushes.Black, 165, 390);
+            graphics.DrawString($"{title5}", font2, Brushes.Black, 165, 450);
+
+            //Количество
+            graphics.DrawString("Кол-во/л", font2, Brushes.Black, 412, 150);
+
+            if (numericUpDown1.Value >= 1)
+            {
+                graphics.DrawString($"{quantity}", font2, Brushes.Black, 457, 210);
+            }
+            if(numericUpDown2.Value >= 1)
+            {
+                graphics.DrawString($"{quantity2}", font2, Brushes.Black, 457, 270);
+            }
+            if (numericUpDown3.Value >= 1)
+            {
+                graphics.DrawString($"{quantity3}", font2, Brushes.Black, 457, 330);
+            }
+            if (numericUpDown4.Value >= 1)
+            {
+                graphics.DrawString($"{quantity4}", font2, Brushes.Black, 457, 390);
+            }
+            if (numericUpDown5.Value >= 1)
+            {
+                graphics.DrawString($"{quantity5}", font2, Brushes.Black, 457, 450);
+            }
+            
+            //Цена
+            graphics.DrawString("Цена/руб", font2, Brushes.Black, 577, 150);
+
+            graphics.DrawString($"{cost}", font2, Brushes.Black, 603, 210);
+            graphics.DrawString($"{cost2}", font2, Brushes.Black, 603, 270);
+            graphics.DrawString($"{cost3}", font2, Brushes.Black, 603, 330);
+            graphics.DrawString($"{cost4}", font2, Brushes.Black, 603, 390);
+            graphics.DrawString($"{cost5}", font2, Brushes.Black, 603, 450);
+
+            //Сумма
+            graphics.DrawString("Сумма", font2, Brushes.Black, 787, 150);
+
+            if (numericUpDown1.Value >= 1)
+            {
+                graphics.DrawString($"{sum}", font2, Brushes.Black, 795, 210);
+            }
+            if (numericUpDown2.Value >= 1)
+            {
+                graphics.DrawString($"{sum2}", font2, Brushes.Black, 795, 270);
+            }
+            if (numericUpDown3.Value >= 1)
+            {
+                graphics.DrawString($"{sum3}", font2, Brushes.Black, 795, 330);
+            }
+            if (numericUpDown4.Value >= 1)
+            {
+                graphics.DrawString($"{sum4}", font2, Brushes.Black, 795, 390);
+            }
+            if (numericUpDown5.Value >= 1)
+            {
+                graphics.DrawString($"{sum5}", font2, Brushes.Black, 795, 450);
+            }
+
+            //Подытог
+            graphics.DrawString($"Итого: {sumAll} ₽", font, Brushes.Black, 75, 525);
+            graphics.DrawString($"Продавец: {_user.Login} ", font, Brushes.Black, 75, 645);
+
+
+            return bmp;
         }
     }
 }

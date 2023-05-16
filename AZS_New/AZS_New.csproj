@@ -183,5 +183,11 @@
   <ItemGroup>
     <None Include="Resources\8726087_minus_circle_icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1564505_close_delete_exit_remove_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\134226_back_arrow_left_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
