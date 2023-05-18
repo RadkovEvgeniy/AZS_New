@@ -45,7 +45,36 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.homePanel = new System.Windows.Forms.Panel();
             this.typePanel = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.panelnewrec = new System.Windows.Forms.Panel();
+            this.buttoncreaterec = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxcostNEW = new System.Windows.Forms.TextBox();
+            this.textBoxquantityNEW = new System.Windows.Forms.TextBox();
+            this.textBoxoktaneNEW = new System.Windows.Forms.TextBox();
+            this.textBoxtitleNEW = new System.Windows.Forms.TextBox();
+            this.panelbutrec = new System.Windows.Forms.Panel();
+            this.buttonsaverec = new System.Windows.Forms.Button();
+            this.buttonchangerec = new System.Windows.Forms.Button();
+            this.buttondelrec = new System.Windows.Forms.Button();
+            this.buttonnewrec = new System.Windows.Forms.Button();
+            this.paneltextrec = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBoxcost = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxoktane = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxquantity = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBoxtitle = new System.Windows.Forms.TextBox();
             this.salePanel = new System.Windows.Forms.Panel();
+            this.buttonsave = new System.Windows.Forms.Button();
             this.labelemail = new System.Windows.Forms.Label();
             this.textemail = new System.Windows.Forms.TextBox();
             this.buttonemail = new System.Windows.Forms.Button();
@@ -81,12 +110,18 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panelleft.SuspendLayout();
             this.paneltitle.SuspendLayout();
             this.panellogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.managementPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.typePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panelnewrec.SuspendLayout();
+            this.panelbutrec.SuspendLayout();
+            this.paneltextrec.SuspendLayout();
             this.salePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturereceipt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureminus4)).BeginInit();
@@ -271,9 +306,9 @@
             this.managementPanel.Controls.Add(this.deleteButton3);
             this.managementPanel.Controls.Add(this.saveButton3);
             this.managementPanel.Controls.Add(this.dataGridView3);
-            this.managementPanel.Location = new System.Drawing.Point(336, 128);
+            this.managementPanel.Location = new System.Drawing.Point(531, 182);
             this.managementPanel.Name = "managementPanel";
-            this.managementPanel.Size = new System.Drawing.Size(342, 220);
+            this.managementPanel.Size = new System.Drawing.Size(159, 134);
             this.managementPanel.TabIndex = 2;
             // 
             // deleteButton3
@@ -324,15 +359,308 @@
             // 
             // typePanel
             // 
-            this.typePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.typePanel.Location = new System.Drawing.Point(817, 285);
+            this.typePanel.BackColor = System.Drawing.SystemColors.Control;
+            this.typePanel.Controls.Add(this.textBox1);
+            this.typePanel.Controls.Add(this.dataGridView2);
+            this.typePanel.Controls.Add(this.panelnewrec);
+            this.typePanel.Controls.Add(this.panelbutrec);
+            this.typePanel.Controls.Add(this.paneltextrec);
+            this.typePanel.Location = new System.Drawing.Point(1121, 162);
             this.typePanel.Name = "typePanel";
-            this.typePanel.Size = new System.Drawing.Size(200, 100);
+            this.typePanel.Size = new System.Drawing.Size(232, 177);
             this.typePanel.TabIndex = 9;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1726, 461);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(10, 26);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.Visible = false;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(133, 80);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 62;
+            this.dataGridView2.RowTemplate.Height = 28;
+            this.dataGridView2.Size = new System.Drawing.Size(780, 415);
+            this.dataGridView2.TabIndex = 4;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            // 
+            // panelnewrec
+            // 
+            this.panelnewrec.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelnewrec.Controls.Add(this.buttoncreaterec);
+            this.panelnewrec.Controls.Add(this.label8);
+            this.panelnewrec.Controls.Add(this.label7);
+            this.panelnewrec.Controls.Add(this.label6);
+            this.panelnewrec.Controls.Add(this.label5);
+            this.panelnewrec.Controls.Add(this.label4);
+            this.panelnewrec.Controls.Add(this.textBoxcostNEW);
+            this.panelnewrec.Controls.Add(this.textBoxquantityNEW);
+            this.panelnewrec.Controls.Add(this.textBoxoktaneNEW);
+            this.panelnewrec.Controls.Add(this.textBoxtitleNEW);
+            this.panelnewrec.Location = new System.Drawing.Point(133, 570);
+            this.panelnewrec.Name = "panelnewrec";
+            this.panelnewrec.Size = new System.Drawing.Size(780, 339);
+            this.panelnewrec.TabIndex = 3;
+            // 
+            // buttoncreaterec
+            // 
+            this.buttoncreaterec.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttoncreaterec.Location = new System.Drawing.Point(240, 281);
+            this.buttoncreaterec.Name = "buttoncreaterec";
+            this.buttoncreaterec.Size = new System.Drawing.Size(273, 53);
+            this.buttoncreaterec.TabIndex = 3;
+            this.buttoncreaterec.Text = "Добавить";
+            this.buttoncreaterec.UseVisualStyleBackColor = true;
+            this.buttoncreaterec.Click += new System.EventHandler(this.buttoncreaterec_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(175, 203);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(82, 27);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Цена:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(91, 162);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(166, 27);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Количество:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(21, 120);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(236, 27);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Октановое число:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(63, 79);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(194, 27);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Наименование:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(9, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(262, 36);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Новая запись:";
+            // 
+            // textBoxcostNEW
+            // 
+            this.textBoxcostNEW.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxcostNEW.Location = new System.Drawing.Point(263, 199);
+            this.textBoxcostNEW.Name = "textBoxcostNEW";
+            this.textBoxcostNEW.Size = new System.Drawing.Size(272, 44);
+            this.textBoxcostNEW.TabIndex = 0;
+            // 
+            // textBoxquantityNEW
+            // 
+            this.textBoxquantityNEW.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxquantityNEW.Location = new System.Drawing.Point(263, 158);
+            this.textBoxquantityNEW.Name = "textBoxquantityNEW";
+            this.textBoxquantityNEW.Size = new System.Drawing.Size(272, 44);
+            this.textBoxquantityNEW.TabIndex = 0;
+            // 
+            // textBoxoktaneNEW
+            // 
+            this.textBoxoktaneNEW.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxoktaneNEW.Location = new System.Drawing.Point(263, 116);
+            this.textBoxoktaneNEW.Name = "textBoxoktaneNEW";
+            this.textBoxoktaneNEW.Size = new System.Drawing.Size(272, 44);
+            this.textBoxoktaneNEW.TabIndex = 0;
+            // 
+            // textBoxtitleNEW
+            // 
+            this.textBoxtitleNEW.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxtitleNEW.Location = new System.Drawing.Point(263, 75);
+            this.textBoxtitleNEW.Name = "textBoxtitleNEW";
+            this.textBoxtitleNEW.Size = new System.Drawing.Size(272, 44);
+            this.textBoxtitleNEW.TabIndex = 0;
+            // 
+            // panelbutrec
+            // 
+            this.panelbutrec.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelbutrec.Controls.Add(this.buttonsaverec);
+            this.panelbutrec.Controls.Add(this.buttonchangerec);
+            this.panelbutrec.Controls.Add(this.buttondelrec);
+            this.panelbutrec.Controls.Add(this.buttonnewrec);
+            this.panelbutrec.Location = new System.Drawing.Point(1308, 80);
+            this.panelbutrec.Name = "panelbutrec";
+            this.panelbutrec.Size = new System.Drawing.Size(281, 415);
+            this.panelbutrec.TabIndex = 2;
+            // 
+            // buttonsaverec
+            // 
+            this.buttonsaverec.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonsaverec.Location = new System.Drawing.Point(3, 333);
+            this.buttonsaverec.Name = "buttonsaverec";
+            this.buttonsaverec.Size = new System.Drawing.Size(273, 53);
+            this.buttonsaverec.TabIndex = 3;
+            this.buttonsaverec.Text = "Сохранить";
+            this.buttonsaverec.UseVisualStyleBackColor = true;
+            this.buttonsaverec.Click += new System.EventHandler(this.buttonsaverec_Click);
+            // 
+            // buttonchangerec
+            // 
+            this.buttonchangerec.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonchangerec.Location = new System.Drawing.Point(3, 239);
+            this.buttonchangerec.Name = "buttonchangerec";
+            this.buttonchangerec.Size = new System.Drawing.Size(273, 53);
+            this.buttonchangerec.TabIndex = 3;
+            this.buttonchangerec.Text = "Изменить";
+            this.buttonchangerec.UseVisualStyleBackColor = true;
+            this.buttonchangerec.Click += new System.EventHandler(this.buttonchangerec_Click);
+            // 
+            // buttondelrec
+            // 
+            this.buttondelrec.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttondelrec.Location = new System.Drawing.Point(3, 125);
+            this.buttondelrec.Name = "buttondelrec";
+            this.buttondelrec.Size = new System.Drawing.Size(273, 53);
+            this.buttondelrec.TabIndex = 3;
+            this.buttondelrec.Text = "Удалить";
+            this.buttondelrec.UseVisualStyleBackColor = true;
+            this.buttondelrec.Click += new System.EventHandler(this.buttondelrec_Click);
+            // 
+            // buttonnewrec
+            // 
+            this.buttonnewrec.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonnewrec.Location = new System.Drawing.Point(3, 31);
+            this.buttonnewrec.Name = "buttonnewrec";
+            this.buttonnewrec.Size = new System.Drawing.Size(273, 53);
+            this.buttonnewrec.TabIndex = 3;
+            this.buttonnewrec.Text = "Новая запись";
+            this.buttonnewrec.UseVisualStyleBackColor = true;
+            this.buttonnewrec.Click += new System.EventHandler(this.buttonnewrec_Click);
+            // 
+            // paneltextrec
+            // 
+            this.paneltextrec.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.paneltextrec.Controls.Add(this.label3);
+            this.paneltextrec.Controls.Add(this.label12);
+            this.paneltextrec.Controls.Add(this.textBoxcost);
+            this.paneltextrec.Controls.Add(this.label11);
+            this.paneltextrec.Controls.Add(this.textBoxoktane);
+            this.paneltextrec.Controls.Add(this.label10);
+            this.paneltextrec.Controls.Add(this.textBoxquantity);
+            this.paneltextrec.Controls.Add(this.label9);
+            this.paneltextrec.Controls.Add(this.textBoxtitle);
+            this.paneltextrec.Location = new System.Drawing.Point(964, 80);
+            this.paneltextrec.Name = "paneltextrec";
+            this.paneltextrec.Size = new System.Drawing.Size(281, 415);
+            this.paneltextrec.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(8, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(148, 36);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Запись:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.Location = new System.Drawing.Point(9, 315);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(82, 27);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Цена:";
+            // 
+            // textBoxcost
+            // 
+            this.textBoxcost.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxcost.Location = new System.Drawing.Point(3, 345);
+            this.textBoxcost.Name = "textBoxcost";
+            this.textBoxcost.Size = new System.Drawing.Size(272, 44);
+            this.textBoxcost.TabIndex = 0;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(9, 238);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(166, 27);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Количество:";
+            // 
+            // textBoxoktane
+            // 
+            this.textBoxoktane.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxoktane.Location = new System.Drawing.Point(3, 191);
+            this.textBoxoktane.Name = "textBoxoktane";
+            this.textBoxoktane.Size = new System.Drawing.Size(272, 44);
+            this.textBoxoktane.TabIndex = 0;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(9, 161);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(236, 27);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Октановое число:";
+            // 
+            // textBoxquantity
+            // 
+            this.textBoxquantity.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxquantity.Location = new System.Drawing.Point(3, 268);
+            this.textBoxquantity.Name = "textBoxquantity";
+            this.textBoxquantity.Size = new System.Drawing.Size(272, 44);
+            this.textBoxquantity.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(9, 84);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(194, 27);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Наименование:";
+            // 
+            // textBoxtitle
+            // 
+            this.textBoxtitle.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxtitle.Location = new System.Drawing.Point(3, 114);
+            this.textBoxtitle.Name = "textBoxtitle";
+            this.textBoxtitle.Size = new System.Drawing.Size(272, 44);
+            this.textBoxtitle.TabIndex = 0;
             // 
             // salePanel
             // 
             this.salePanel.BackColor = System.Drawing.SystemColors.Control;
+            this.salePanel.Controls.Add(this.buttonsave);
             this.salePanel.Controls.Add(this.labelemail);
             this.salePanel.Controls.Add(this.textemail);
             this.salePanel.Controls.Add(this.buttonemail);
@@ -365,16 +693,27 @@
             this.salePanel.Controls.Add(this.comboBox3);
             this.salePanel.Controls.Add(this.comboBox2);
             this.salePanel.Controls.Add(this.comboBox1);
-            this.salePanel.Location = new System.Drawing.Point(1065, 261);
+            this.salePanel.Location = new System.Drawing.Point(1232, 496);
             this.salePanel.Name = "salePanel";
-            this.salePanel.Size = new System.Drawing.Size(1064, 734);
+            this.salePanel.Size = new System.Drawing.Size(236, 190);
             this.salePanel.TabIndex = 8;
+            // 
+            // buttonsave
+            // 
+            this.buttonsave.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonsave.Location = new System.Drawing.Point(43, 480);
+            this.buttonsave.Name = "buttonsave";
+            this.buttonsave.Size = new System.Drawing.Size(637, 72);
+            this.buttonsave.TabIndex = 20;
+            this.buttonsave.Text = "Сохранить";
+            this.buttonsave.UseVisualStyleBackColor = true;
+            this.buttonsave.Click += new System.EventHandler(this.buttonsave_Click);
             // 
             // labelemail
             // 
             this.labelemail.AutoSize = true;
             this.labelemail.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelemail.Location = new System.Drawing.Point(41, 548);
+            this.labelemail.Location = new System.Drawing.Point(38, 641);
             this.labelemail.Name = "labelemail";
             this.labelemail.Size = new System.Drawing.Size(460, 27);
             this.labelemail.TabIndex = 3;
@@ -383,7 +722,7 @@
             // textemail
             // 
             this.textemail.Font = new System.Drawing.Font("Courier New", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textemail.Location = new System.Drawing.Point(39, 578);
+            this.textemail.Location = new System.Drawing.Point(36, 671);
             this.textemail.Name = "textemail";
             this.textemail.Size = new System.Drawing.Size(637, 44);
             this.textemail.TabIndex = 19;
@@ -392,7 +731,7 @@
             // buttonemail
             // 
             this.buttonemail.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonemail.Location = new System.Drawing.Point(39, 628);
+            this.buttonemail.Location = new System.Drawing.Point(36, 721);
             this.buttonemail.Name = "buttonemail";
             this.buttonemail.Size = new System.Drawing.Size(637, 72);
             this.buttonemail.TabIndex = 18;
@@ -403,11 +742,11 @@
             // buttonprint
             // 
             this.buttonprint.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonprint.Location = new System.Drawing.Point(39, 470);
+            this.buttonprint.Location = new System.Drawing.Point(39, 402);
             this.buttonprint.Name = "buttonprint";
             this.buttonprint.Size = new System.Drawing.Size(637, 72);
             this.buttonprint.TabIndex = 17;
-            this.buttonprint.Text = "Печать/Сохранить";
+            this.buttonprint.Text = "Печать";
             this.buttonprint.UseVisualStyleBackColor = true;
             this.buttonprint.Click += new System.EventHandler(this.buttonprint_Click);
             // 
@@ -424,6 +763,7 @@
             // 
             // picturereceipt
             // 
+            this.picturereceipt.BackColor = System.Drawing.Color.Transparent;
             this.picturereceipt.Location = new System.Drawing.Point(797, 50);
             this.picturereceipt.Name = "picturereceipt";
             this.picturereceipt.Size = new System.Drawing.Size(1040, 650);
@@ -748,14 +1088,18 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Png-Images (*.png)|*.png";
+            // 
             // Main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2197, 1281);
-            this.Controls.Add(this.typePanel);
-            this.Controls.Add(this.salePanel);
             this.Controls.Add(this.managementPanel);
+            this.Controls.Add(this.salePanel);
+            this.Controls.Add(this.typePanel);
             this.Controls.Add(this.paneltitle);
             this.Controls.Add(this.homePanel);
             this.Controls.Add(this.panelleft);
@@ -768,6 +1112,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.managementPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.typePanel.ResumeLayout(false);
+            this.typePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panelnewrec.ResumeLayout(false);
+            this.panelnewrec.PerformLayout();
+            this.panelbutrec.ResumeLayout(false);
+            this.paneltextrec.ResumeLayout(false);
+            this.paneltextrec.PerformLayout();
             this.salePanel.ResumeLayout(false);
             this.salePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picturereceipt)).EndInit();
@@ -833,7 +1185,6 @@
         private System.Windows.Forms.PictureBox pictureminus4;
         private System.Windows.Forms.PictureBox pictureminus3;
         private System.Windows.Forms.PictureBox pictureminus2;
-        private System.Windows.Forms.PictureBox picturereceipt;
         private System.Windows.Forms.Button buttonCreateReceipt;
         private System.Windows.Forms.Button buttonemail;
         private System.Windows.Forms.Button buttonprint;
@@ -842,5 +1193,36 @@
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Panel panelbutrec;
+        private System.Windows.Forms.Button buttonsaverec;
+        private System.Windows.Forms.Button buttondelrec;
+        private System.Windows.Forms.Button buttonnewrec;
+        private System.Windows.Forms.Panel panelnewrec;
+        private System.Windows.Forms.Button buttoncreaterec;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxcostNEW;
+        private System.Windows.Forms.TextBox textBoxquantityNEW;
+        private System.Windows.Forms.TextBox textBoxoktaneNEW;
+        private System.Windows.Forms.TextBox textBoxtitleNEW;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button buttonchangerec;
+        private System.Windows.Forms.Panel paneltextrec;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBoxcost;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBoxoktane;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxquantity;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxtitle;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button buttonsave;
+        private System.Windows.Forms.PictureBox picturereceipt;
     }
 }

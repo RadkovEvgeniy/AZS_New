@@ -14,11 +14,22 @@ using System.Net.Mail;
 
 namespace AZS_New
 {
+    enum rowstate
+    {
+        Existed,
+        New,
+        Modified,
+        ModifiedNew,
+        Deleted
+    }
+
     public partial class Main_form : Form
     {
         Database_connection DataBase = new Database_connection();
 
         DataTable type_of_fuel = new DataTable();
+
+        int selectedrow;
 
         private static string file;
 
@@ -47,7 +58,9 @@ namespace AZS_New
             panelleft.Controls.Add(leftborderBtn);
             iconPictureBox1.IconChar = IconChar.Home;
             createcolumnsAdmin();
+            createcolumnsType();
             refreshdatagridAdmin(dataGridView3);
+            refreshdatagridType(dataGridView2);
             buttonemail.Enabled = false;
         }
 
@@ -56,6 +69,7 @@ namespace AZS_New
             homePanel.Visible = true;
             salePanel.Visible = false;
             typePanel.Visible = false;
+            panelnewrec.Visible = false;
             managementPanel.Visible = false;
             pictureplus1.Visible = true;
             pictureplus2.Visible = false;
@@ -154,17 +168,19 @@ namespace AZS_New
             pictureminus3.Location = new System.Drawing.Point(682, 199);
             pictureminus4.Size = new System.Drawing.Size(39, 39);
             pictureminus4.Location = new System.Drawing.Point(682, 240);
-            picturereceipt.Size = new System.Drawing.Size(1440, 954);
+            picturereceipt.Size = new System.Drawing.Size(1051, 781);
             picturereceipt.Location = new System.Drawing.Point(797, 50);
             buttonCreateReceipt.Size = new System.Drawing.Size(637, 72);
             buttonCreateReceipt.Location = new System.Drawing.Point(39, 324);
             buttonprint.Size = new System.Drawing.Size(637, 72);
             buttonprint.Location = new System.Drawing.Point(39, 400);
+            buttonsave.Size = new System.Drawing.Size(637, 72);
+            buttonsave.Location = new System.Drawing.Point(39, 476);
             buttonemail.Size = new System.Drawing.Size(637, 72);
-            buttonemail.Location = new System.Drawing.Point(39, 558);
+            buttonemail.Location = new System.Drawing.Point(39, 634);
             textemail.Size = new System.Drawing.Size(637, 32);
-            textemail.Location = new System.Drawing.Point(39, 520);
-            labelemail.Location = new System.Drawing.Point(39, 489);
+            textemail.Location = new System.Drawing.Point(39, 596);
+            labelemail.Location = new System.Drawing.Point(39, 565);
             homePanel.Dock = DockStyle.Fill;
             salePanel.Dock = DockStyle.Fill;
             typePanel.Dock = DockStyle.Fill;
@@ -242,6 +258,121 @@ namespace AZS_New
                 comboBox5.Items.Add(fuel);
             }
             DataBase.CloseConnection();
+        }
+
+        private void createcolumnsType()
+        {
+            dataGridView2.Columns.Add("id", "id");
+            dataGridView2.Columns.Add("Title", "Наименование");
+            dataGridView2.Columns.Add("Oktane", "Октановое число");
+            dataGridView2.Columns.Add("Quantity", "Количество");
+            dataGridView2.Columns.Add("Cost", "Цена");
+            dataGridView2.Columns.Add("New", String.Empty);
+            dataGridView2.Columns[0].Visible = false;
+            dataGridView2.Columns[5].Visible = false;
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        }
+
+        private void readsinglerowType(DataGridView dgw, IDataRecord rec)
+        {
+            dgw.Rows.Add(rec.GetInt32(0), rec.GetString(1), rec.GetString(2), rec.GetInt32(3), rec.GetDecimal(4), rowstate.ModifiedNew);
+        }
+
+        private void refreshdatagridType(DataGridView dgw)
+        {
+            dgw.Rows.Clear();
+
+            string query = $"select * from Type_of_fuel";
+
+            SqlCommand com = new SqlCommand(query, DataBase.getConnection());
+
+            DataBase.OpenConnection();
+
+            SqlDataReader read = com.ExecuteReader();
+
+            while(read.Read())
+            {
+                readsinglerowType(dgw, read);
+            }
+            read.Close();
+            DataBase.CloseConnection();
+        }
+
+        private void deleteType()
+        {
+            int index = dataGridView2.CurrentCell.RowIndex;
+
+            dataGridView2.Rows[index].Visible = false;
+
+            if (dataGridView2.Rows[index].Cells[0].Value.ToString() == String.Empty)
+            {
+                dataGridView2.Rows[index].Cells[5].Value = rowstate.Deleted;
+                return;
+            }
+            dataGridView2.Rows[index].Cells[5].Value = rowstate.Deleted;
+        }
+
+        private void saveType()
+        {
+            DataBase.OpenConnection();
+
+            for (int index = 0; index < dataGridView2.Rows.Count; index++)
+            {
+                var row = (rowstate)dataGridView2.Rows[index].Cells[5].Value;
+
+                if (row == rowstate.Existed)
+                    continue;
+
+                if (row == rowstate.Deleted)
+                {
+                    var id = Convert.ToInt32(dataGridView2.Rows[index].Cells[0].Value);
+                    var deletequery = $"delete from Type_of_fuel where ID = {id}";
+
+                    var command = new SqlCommand(deletequery, DataBase.getConnection());
+                    command.ExecuteNonQuery();
+                }
+
+                if (row == rowstate.Modified)
+                {
+                    var id = dataGridView2.Rows[index].Cells[0].Value.ToString();
+                    var title = dataGridView2.Rows[index].Cells[1].Value.ToString();
+                    var oktane = dataGridView2.Rows[index].Cells[2].Value.ToString();
+                    var quantity = dataGridView2.Rows[index].Cells[3].Value.ToString();
+                    var cost = dataGridView2.Rows[index].Cells[4].Value.ToString();
+
+                    var changequery = $"update Type_of_fuel set Title = '{title}', Oktane = '{oktane}', Quantity = '{quantity}', Cost = '{cost}' where Id = '{id}'";
+
+                    var command = new SqlCommand(changequery, DataBase.getConnection());
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            DataBase.CloseConnection();
+        }
+
+        private void changeType()
+        {
+            var selectedrowindex = dataGridView2.CurrentCell.RowIndex;
+
+            var id = textBox1.Text;
+            var title = textBoxtitle.Text;
+            var oktane = textBoxoktane.Text;
+            var quantity = textBoxquantity.Text;
+            var cost = textBoxcost.Text;
+
+            if (dataGridView2.Rows[selectedrowindex].Cells[0].Value.ToString() != string.Empty) ;
+            {
+                dataGridView2.Rows[selectedrowindex].SetValues(id, title, oktane, quantity, cost);
+                dataGridView2.Rows[selectedrowindex].Cells[5].Value = rowstate.Modified;
+            }
+        }
+
+        private void clearType()
+        {
+            textBoxtitle.Text = "";
+            textBoxoktane.Text = "";
+            textBoxquantity.Text = "";
+            textBoxcost.Text = "";
         }
 
         private void createcolumnsAdmin()
@@ -423,7 +554,7 @@ namespace AZS_New
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawImage(img, 50, 50);
+            e.Graphics.DrawImage(img, 30, 50);
         }
 
         private void buttonprint_Click(object sender, EventArgs e)
@@ -432,8 +563,6 @@ namespace AZS_New
             {
                 printDocument1.Print();
             }
-            labelemail.Visible = true;
-            textemail.Visible = true;
         }
 
         private void textemail_TextChanged(object sender, EventArgs e)
@@ -442,6 +571,92 @@ namespace AZS_New
             {
                 buttonemail.Enabled = true;
             }
+        }
+
+        private void buttonnewrec_Click(object sender, EventArgs e)
+        {
+            panelnewrec.Visible = true;
+        }
+
+        private void buttondelrec_Click(object sender, EventArgs e)
+        {
+            deleteType();
+            clearType();
+        }
+
+        private void buttonsaverec_Click(object sender, EventArgs e)
+        {
+            saveType();
+            refreshdatagridType(dataGridView2);
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedrow = e.RowIndex;
+            if (e.ColumnIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView2.Rows[selectedrow];
+
+                textBox1.Text = row.Cells[0].Value.ToString();
+                textBoxtitle.Text = row.Cells[1].Value.ToString();
+                textBoxoktane.Text = row.Cells[2].Value.ToString();
+                textBoxquantity.Text = row.Cells[3].Value.ToString();
+                textBoxcost.Text = row.Cells[4].Value.ToString();
+            }
+        }
+
+        private void buttonchangerec_Click(object sender, EventArgs e)
+        {
+            changeType();
+        }
+
+        private void buttoncreaterec_Click(object sender, EventArgs e)
+        {
+            DataBase.OpenConnection();
+
+            var titlenew = textBoxtitleNEW.Text;
+            var oktanenew = textBoxoktaneNEW.Text;
+            var quantitynew = textBoxquantityNEW.Text;
+            var costnew = textBoxcostNEW.Text;
+
+
+            var addquery = $"insert into Type_of_fuel (Title, Oktane, Quantity, Cost) values ('{titlenew}','{oktanenew}', '{quantitynew}', '{costnew}')";
+
+            var command = new SqlCommand(addquery, DataBase.getConnection());
+
+            if(command.ExecuteNonQuery() == 1)
+            {
+                MessageBox.Show("Запись успешно создана.");
+                panelnewrec.Visible = false;
+                textBoxtitleNEW.Text = "";
+                textBoxoktaneNEW.Text = "";
+                textBoxquantityNEW.Text = "";
+                textBoxcostNEW.Text = "";
+                refreshdatagridType(dataGridView2);
+            }
+            else
+            {
+                MessageBox.Show("Произошла ошибка" +
+                    "Попробуйте еще раз");
+                panelnewrec.Visible = false;
+                panelnewrec.Visible = false;
+                textBoxtitleNEW.Text = "";
+                textBoxoktaneNEW.Text = "";
+                textBoxquantityNEW.Text = "";
+                textBoxcostNEW.Text = "";
+            }
+            
+            DataBase.CloseConnection();
+        }
+
+        private void buttonsave_Click(object sender, EventArgs e)
+        {
+            {
+                if (this.saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    this.picturereceipt.Image.Save(this.saveFileDialog1.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+            labelemail.Visible = true;
+            textemail.Visible = true;
         }
 
         private void saveButton3_Click(object sender, EventArgs e)
@@ -787,7 +1002,7 @@ namespace AZS_New
         {
             Bitmap bmp = new Bitmap(picturereceipt.Width, picturereceipt.Height);
             Graphics graphics = Graphics.FromImage(bmp);
-
+            graphics.Clear(Color.White);
             Font font = new Font("Times New Roman", 20);
             Font font2 = new Font("Times New Roman", 16);
             Font sfont = new Font("Times New Roman", 10);
